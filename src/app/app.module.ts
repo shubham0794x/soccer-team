@@ -8,6 +8,9 @@ import { FormsModule} from '@angular/forms';
 import { FanItemComponent } from './fan-item/fan-item.component';
 import { TeamListComponent } from './team-list/team-list.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,8 @@ import { TeamListComponent } from './team-list/team-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

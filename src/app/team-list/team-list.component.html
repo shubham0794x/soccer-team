@@ -16,13 +16,16 @@
 <div class="container">
     <div class="team">
         <h3> Real Madrid FC</h3>
-        <app-fan-item *ngFor="let madridFan of madridFanList; let i = index" [index]="i" [fan]="madridFan" (fanRemoved)="removeFan($event, 'madrid')"></app-fan-item>
+        <button class="btn btn-success" (click)="addRandomFan('madrid')"> Add Random User </button>
+        <app-fan-item *ngFor="let madridFan of madridFanList; let i = index" [position]="i" [fan]="madridFan" (fanRemoved)="removeFan($event, 'madrid')"></app-fan-item>
     </div>
 
     <div class="team">
         <h3> Barcelona FC</h3>
-        <app-fan-item *ngFor="let barcelonaFan of barcelonaFanList; let i = index" [index]="i" [fan]="barcelonaFan" (fanRemoved)="removeFan($event, 'barcelona')"></app-fan-item>  
+        <button class="btn btn-success" (click)="addRandomFan('barcelona')"> Add Random User </button>
+        <app-fan-item *ngFor="let barcelonaFan of barcelonaFanList; let i = index" [position]="i" [fan]="barcelonaFan" (fanRemoved)="removeFan($event, 'barcelona')"></app-fan-item>  
     </div>
 
 </div>
 
+<!-- $event is responsible for getting hold of any params which we pass/emit from child component / event binding with passed params -->

@@ -1,0 +1,15 @@
+
+
+By passing parameters with the emitted events 
+
+parameter is recieved as $event value of parameter binding 
+
+We are emitting custom event to the parent 
+
+$event == gets hold of any passed in parameter, and call the method which we wish to execute 
+
+child component emits an event and all the logic is handled by parent component 
+
+$event is reflected as index: number param sent using the EventEmitter from the FanItemComponent class 
+
+Why is $event a number? Because we defined the type of the response when we create  fanRemoved event (fanRemoved: EventEmitter<number> = new EventEmitter();)

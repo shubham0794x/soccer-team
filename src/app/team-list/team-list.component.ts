@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Fan } from '../models/fan.model';
+import { RandomUserResponse } from '../models/random-user.model';
+import { RandomUserService } from '../random-user.service';
 
 
 @Component({
@@ -18,13 +20,13 @@ export class TeamListComponent implements OnInit {
   madridFanList : Array<Fan>;
   barcelonaFanList: Array<Fan>;
 
-  constructor() {
+  constructor( private randomUserService: RandomUserService) {
     this.fanName = '';
     this.fanAge = 0;
     this.fanCountry = '';
     this.selectedTeam = '';
-    this.madridFanList = [ new Fan('Adam', 31, 'Spain'), new Fan('Adam2', 31, 'Spain') ];
-    this.barcelonaFanList = [ new Fan('Vince', 28, 'Portugal'),  new Fan('Vince2', 28, 'Portugal')];
+    this.madridFanList = [ new Fan('Adam', 31, 'Spain') ];
+    this.barcelonaFanList = [ new Fan('Vince', 28, 'Portugal')];
    }
 
   ngOnInit(): void {
@@ -46,16 +48,32 @@ export class TeamListComponent implements OnInit {
 
   }
   
-  removeFan(index: number, team: string): void {
+  removeFan(position: number, team: string): void {
     if (team === 'madrid') {
-      this.madridFanList.splice(index, 1);
+      this.madridFanList.splice(position, 1);
     } else {
-      this.barcelonaFanList.splice(index, 1);
+      this.barcelonaFanList.splice(position, 1);
     }
   }
 
 
+//child component emits event/data & all the logic is handled by parent component 
 
+   addRandomFan(team:string):void {
+     this.randomUserService.getRandomUser().subscribe(result => {
+        const randomUserResponse: RandomUserResponse = result;
 
+        const name: string = randomUserResponse.results[0].name.first + ' ' + randomUserResponse.results[0].name.last;
+        const age: number = randomUserResponse.results[0].dob.age;
+        const country: string = randomUserResponse.results[0].location.country;
+        const picture: string = randomUserResponse.results[0].picture.large;
 
+        if (team === 'madrid') {
+          this.madridFanList.push( new Fan(name, age, country, picture));
+        } else {
+          this.barcelonaFanList.push( new Fan(name, age, country, picture));
+        }
+
+     });
+   }
 }

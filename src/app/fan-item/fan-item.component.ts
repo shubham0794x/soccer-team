@@ -13,15 +13,17 @@ export class FanItemComponent implements OnInit {
 
   @Output() fanRemoved: EventEmitter<number> = new EventEmitter();
 
-  @Input() index!:number;
+  // way to emit custom event 
+
+  @Input() position!:number;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  removeFan(index:number):void{
-    this.fanRemoved.emit(index);
+  removeFan(position:number):void{
+    this.fanRemoved.emit(position);
   }
 
 
