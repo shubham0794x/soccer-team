@@ -1,5 +1,5 @@
 
-<h1> Super TEAM</h1>
+<h1 style="text-align: center;"> Super TEAM</h1>
 
 <input type="text" placeholder="Fan Name" [(ngModel)]="fanName">
 <input type="number" placeholder="Fan Age" [(ngModel)]="fanAge">
@@ -16,13 +16,13 @@
 <div class="container">
     <div class="team">
         <h3> Real Madrid FC</h3>
-        <button class="btn btn-success" (click)="addRandomFan('madrid')"> Add Random User </button>
+        <button class="btn btn-primary random-user-btn"  (click)="addRandomFan('madrid')"> Add Random User </button>
         <app-fan-item *ngFor="let madridFan of madridFanList; let i = index" [position]="i" [fan]="madridFan" (fanRemoved)="removeFan($event, 'madrid')"></app-fan-item>
     </div>
 
     <div class="team">
         <h3> Barcelona FC</h3>
-        <button class="btn btn-success" (click)="addRandomFan('barcelona')"> Add Random User </button>
+        <button class="btn btn-primary random-user-btn" (click)="addRandomFan('barcelona')"> Add Random User </button>
         <app-fan-item *ngFor="let barcelonaFan of barcelonaFanList; let i = index" [position]="i" [fan]="barcelonaFan" (fanRemoved)="removeFan($event, 'barcelona')"></app-fan-item>  
     </div>
 
