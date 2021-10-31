@@ -8,9 +8,16 @@
 .container div:first-child{
     padding: 2em;
     background-color: brown;
+    margin-right: 20px;
 }
 
 .container div:last-child{
     padding: 2em;
     background-color: blue;
+    margin-left: 20px;
 }
+
+.random-user-btn{
+    margin-bottom: 40px;
+}
+
