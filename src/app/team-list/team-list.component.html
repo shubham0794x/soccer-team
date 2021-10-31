@@ -11,7 +11,7 @@
         <option value="barcelona"> Barca FC</option>
     </select>
 
-    <button class="btn btn-primary" (click)="addNewFan()"> Add </button>
+    <button class="btn btn-primary" (click)="addNewFan()">Add</button>
 </div>
 
 
@@ -20,14 +20,14 @@
     <div class="team">
         <h3 style="color:white;"> Real Madrid FC - {{madridFanList.length}} </h3>
         <button class="btn btn-primary random-user-btn"  (click)="addRandomFan('madrid')">Add Random User</button>
-        <button class="btn btn-danger"  (click)="removeAllFan('madrid')">Remove All</button>
+        <button class="btn btn-danger random-user-btn"  (click)="removeAllFan('madrid')">Remove All</button>
         <app-fan-item *ngFor="let madridFan of madridFanList; let i = index" [position]="i" [fan]="madridFan" (fanRemoved)="removeFan($event, 'madrid')"></app-fan-item>
     </div>
 
     <div class="team">
         <h3 style="color:white;"> Barcelona FC -  {{ barcelonaFanList.length }}</h3>
         <button class="btn btn-primary random-user-btn" (click)="addRandomFan('barcelona')">Add Random User</button>
-        <button class="btn btn-danger"  (click)="removeAllFan('barcelona')">Remove All</button>
+        <button class="btn btn-danger random-user-btn"  (click)="removeAllFan('barcelona')">Remove All</button>
         <app-fan-item *ngFor="let barcelonaFan of barcelonaFanList; let i = index" [position]="i" [fan]="barcelonaFan" (fanRemoved)="removeFan($event, 'barcelona')"></app-fan-item>  
     </div>
 
