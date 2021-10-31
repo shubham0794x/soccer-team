@@ -2,8 +2,10 @@
 
 <div class="fan-item">
     <img [src] = "fan.profileUrl" style="max-width: 128px;">
-    <p> {{fan.name}}</p>
-    <p> {{fan.age}}</p>
-    <p> {{fan.country}}</p>
+    <div class="wrap-fan-details">
+        <p> {{fan.name}}</p>
+        <p> {{fan.age}}</p>
+        <p> {{fan.country}}</p> 
+    </div>
     <button class="btn btn-danger" (click)="removeFan(position)">Remove</button>
 </div>
