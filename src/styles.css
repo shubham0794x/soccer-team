@@ -4,8 +4,13 @@
 
 body{
     padding: 20px;
+    background-color: slateblue;
 }
 
 button{
     margin: 10px;
+}
+
+h1{
+    color: darkblue;
 }

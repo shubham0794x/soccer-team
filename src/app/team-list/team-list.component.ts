@@ -80,4 +80,11 @@ export class TeamListComponent implements OnInit {
      });
      
    }
+   removeAllFan(team:string):void {
+    if (team === 'madrid') {
+      this.madridFanList = [];
+    } else {
+      this.barcelonaFanList = [];
+    } 
+   }
 }

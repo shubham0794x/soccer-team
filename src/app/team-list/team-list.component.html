@@ -1,28 +1,33 @@
 
-<h1> Super TEAM</h1>
+<h1 style="text-align: center;"> Super TEAM</h1>
 
-<input type="text" placeholder="Fan Name" [(ngModel)]="fanName">
-<input type="number" placeholder="Fan Age" [(ngModel)]="fanAge">
-<input type="text" placeholder="Fan Country" [(ngModel)]="fanCountry">
+<div class="input-user-details">
+    <input type="text" placeholder="Fan Name" [(ngModel)]="fanName">
+    <input type="number" placeholder="Fan Age" [(ngModel)]="fanAge">
+    <input type="text" placeholder="Fan Country" [(ngModel)]="fanCountry">
 
-<select [(ngModel)] = "selectedTeam" >
-    <option value="madrid"> Madrid FC</option>
-    <option value="barcelona"> Barca FC</option>
-</select>
+    <select [(ngModel)] = "selectedTeam" >
+        <option value="madrid"> Madrid FC</option>
+        <option value="barcelona"> Barca FC</option>
+    </select>
 
-<button class="btn btn-primary" (click)="addNewFan()"> Add </button>
+    <button class="btn btn-primary" (click)="addNewFan()">Add</button>
+</div>
+
 
 
 <div class="container">
     <div class="team">
-        <h3> Real Madrid FC</h3>
-        <button class="btn btn-success" (click)="addRandomFan('madrid')"> Add Random User </button>
+        <h3 style="color:white;"> Real Madrid FC - {{madridFanList.length}} </h3>
+        <button class="btn btn-primary random-user-btn"  (click)="addRandomFan('madrid')">Add Random User</button>
+        <button class="btn btn-danger random-user-btn"  (click)="removeAllFan('madrid')">Remove All</button>
         <app-fan-item *ngFor="let madridFan of madridFanList; let i = index" [position]="i" [fan]="madridFan" (fanRemoved)="removeFan($event, 'madrid')"></app-fan-item>
     </div>
 
     <div class="team">
-        <h3> Barcelona FC</h3>
-        <button class="btn btn-success" (click)="addRandomFan('barcelona')"> Add Random User </button>
+        <h3 style="color:white;"> Barcelona FC -  {{ barcelonaFanList.length }}</h3>
+        <button class="btn btn-primary random-user-btn" (click)="addRandomFan('barcelona')">Add Random User</button>
+        <button class="btn btn-danger random-user-btn"  (click)="removeAllFan('barcelona')">Remove All</button>
         <app-fan-item *ngFor="let barcelonaFan of barcelonaFanList; let i = index" [position]="i" [fan]="barcelonaFan" (fanRemoved)="removeFan($event, 'barcelona')"></app-fan-item>  
     </div>
 

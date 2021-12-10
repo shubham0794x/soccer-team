@@ -1,0 +1,15 @@
+
+.fan-item{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-style: groove;
+    border-color: silver;
+    padding: 30px;
+}
+
+.wrap-fan-details{
+    font-size: large;
+    margin: 10px;
+    font-weight: 500;
+
+}
