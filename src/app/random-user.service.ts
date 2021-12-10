@@ -21,3 +21,9 @@ export class RandomUserService {
 
 }
 // RxJS = Reactive programming
+
+// sebastian show for a single cell - how to change a color 
+
+
+
+

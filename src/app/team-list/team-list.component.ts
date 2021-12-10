@@ -60,20 +60,24 @@ export class TeamListComponent implements OnInit {
 //child component emits event/data & all the logic is handled by parent component 
 
    addRandomFan(team:string):void {
-     this.randomUserService.getRandomUser().subscribe(result => {
-        const randomUserResponse: RandomUserResponse = result;
+
+     this.randomUserService.getRandomUser().subscribe(apiResponse => {
+
+        const randomUserResponse: RandomUserResponse = apiResponse;  
 
         const name: string = randomUserResponse.results[0].name.first + ' ' + randomUserResponse.results[0].name.last;
         const age: number = randomUserResponse.results[0].dob.age;
         const country: string = randomUserResponse.results[0].location.country;
         const picture: string = randomUserResponse.results[0].picture.large;
 
-        if (team === 'madrid') {
+        if (team === 'madrid') {   // adding Dynamically to the respective teams 
+
           this.madridFanList.push( new Fan(name, age, country, picture));
         } else {
           this.barcelonaFanList.push( new Fan(name, age, country, picture));
         }
 
      });
+     
    }
 }

@@ -1,1 +1,16 @@
+
+<h1>{{'HOME.TITLE' | translate}}</h1>
+
+<label for="lang" class="select-container">
+
+    {{'HOME.SELECT' | translate}}
+    <select #langselect (change)="translate.use(langselect.value)">
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang" id="lang" >{{lang}}</option>
+
+    </select>
+
+
+</label>
+
+
 <app-team-list></app-team-list>
